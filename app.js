@@ -14,9 +14,9 @@ const renderResponse = (res) => {
 }
 
 const shortenUrl = () => {
-  const urlToShorten = inputField.value;
+  const urlToShorten = input.value;
   const data = JSON.stringify({destination: urlToShorten});
-  
+
   fetch(url, {
     method: 'POST',
     headers: {
@@ -29,7 +29,7 @@ const shortenUrl = () => {
       return res.json();
     }
     throw new Error('Request failed!');
-  },networkError => {
+  }, networkError => {
     console.log(networkError.message);
   }).then(jsonResponse => {
     renderResponse(jsonResponse);
